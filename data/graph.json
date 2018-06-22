@@ -1,0 +1,2472 @@
+{
+    "skills": [
+        {
+            "discription": "Conv2d",
+            "id": 1,
+            "maxPoints": 2,
+            "params": [
+                {
+                    "k": "padding",
+                    "v": "(3, 3)"
+                },
+                {
+                    "k": "kernel_size",
+                    "v": "(7, 7)"
+                },
+                {
+                    "k": "dilation",
+                    "v": "(1, 1)"
+                },
+                {
+                    "k": "groups",
+                    "v": "1"
+                },
+                {
+                    "k": "out_channels",
+                    "v": "64"
+                },
+                {
+                    "k": "output_padding",
+                    "v": "(0, 0)"
+                },
+                {
+                    "k": "transposed",
+                    "v": "False"
+                },
+                {
+                    "k": "in_channels",
+                    "v": "3"
+                },
+                {
+                    "k": "training",
+                    "v": "True"
+                },
+                {
+                    "k": "stride",
+                    "v": "(2, 2)"
+                }
+            ],
+            "title": "conv1"
+        },
+        {
+            "depends": [
+                1
+            ],
+            "discription": "BatchNorm2d",
+            "id": 2,
+            "maxPoints": 2,
+            "params": [
+                {
+                    "k": "eps",
+                    "v": "1e-05"
+                },
+                {
+                    "k": "momentum",
+                    "v": "0.1"
+                },
+                {
+                    "k": "track_running_stats",
+                    "v": "True"
+                },
+                {
+                    "k": "affine",
+                    "v": "True"
+                },
+                {
+                    "k": "num_features",
+                    "v": "64"
+                },
+                {
+                    "k": "training",
+                    "v": "True"
+                }
+            ],
+            "title": "bn1"
+        },
+        {
+            "depends": [
+                2
+            ],
+            "discription": "ReLU",
+            "id": 3,
+            "maxPoints": 2,
+            "params": [
+                {
+                    "k": "module",
+                    "v": []
+                },
+                {
+                    "k": "threshold",
+                    "v": "0"
+                },
+                {
+                    "k": "value",
+                    "v": "0"
+                },
+                {
+                    "k": "training",
+                    "v": "True"
+                },
+                {
+                    "k": "inplace",
+                    "v": "True"
+                }
+            ],
+            "title": "relu"
+        },
+        {
+            "depends": [
+                3
+            ],
+            "discription": "MaxPool2d",
+            "id": 4,
+            "maxPoints": 2,
+            "params": [
+                {
+                    "k": "module",
+                    "v": []
+                },
+                {
+                    "k": "kernel_size",
+                    "v": "3"
+                },
+                {
+                    "k": "padding",
+                    "v": "1"
+                },
+                {
+                    "k": "dilation",
+                    "v": "1"
+                },
+                {
+                    "k": "ceil_mode",
+                    "v": "False"
+                },
+                {
+                    "k": "return_indices",
+                    "v": "False"
+                },
+                {
+                    "k": "training",
+                    "v": "True"
+                },
+                {
+                    "k": "stride",
+                    "v": "2"
+                }
+            ],
+            "title": "maxpool"
+        },
+        {
+            "depends": [
+                4
+            ],
+            "discription": "Sequential",
+            "id": 5,
+            "maxPoints": 2,
+            "params": [
+                {
+                    "k": "module",
+                    "v": [
+                        {
+                            "depends": [
+                                4
+                            ],
+                            "discription": "BasicBlock",
+                            "id": 5,
+                            "maxPoints": 2,
+                            "params": [
+                                {
+                                    "k": "module",
+                                    "v": [
+                                        {
+                                            "depends": [
+                                                4
+                                            ],
+                                            "discription": "Conv2d",
+                                            "id": 5,
+                                            "maxPoints": 2,
+                                            "params": [
+                                                {
+                                                    "k": "padding",
+                                                    "v": "(1, 1)"
+                                                },
+                                                {
+                                                    "k": "kernel_size",
+                                                    "v": "(3, 3)"
+                                                },
+                                                {
+                                                    "k": "dilation",
+                                                    "v": "(1, 1)"
+                                                },
+                                                {
+                                                    "k": "groups",
+                                                    "v": "1"
+                                                },
+                                                {
+                                                    "k": "out_channels",
+                                                    "v": "64"
+                                                },
+                                                {
+                                                    "k": "output_padding",
+                                                    "v": "(0, 0)"
+                                                },
+                                                {
+                                                    "k": "transposed",
+                                                    "v": "False"
+                                                },
+                                                {
+                                                    "k": "in_channels",
+                                                    "v": "64"
+                                                },
+                                                {
+                                                    "k": "training",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "stride",
+                                                    "v": "(1, 1)"
+                                                }
+                                            ],
+                                            "title": "conv1"
+                                        },
+                                        {
+                                            "depends": [
+                                                5
+                                            ],
+                                            "discription": "BatchNorm2d",
+                                            "id": 6,
+                                            "maxPoints": 2,
+                                            "params": [
+                                                {
+                                                    "k": "eps",
+                                                    "v": "1e-05"
+                                                },
+                                                {
+                                                    "k": "momentum",
+                                                    "v": "0.1"
+                                                },
+                                                {
+                                                    "k": "track_running_stats",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "affine",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "num_features",
+                                                    "v": "64"
+                                                },
+                                                {
+                                                    "k": "training",
+                                                    "v": "True"
+                                                }
+                                            ],
+                                            "title": "bn1"
+                                        },
+                                        {
+                                            "depends": [
+                                                6
+                                            ],
+                                            "discription": "ReLU",
+                                            "id": 7,
+                                            "maxPoints": 2,
+                                            "params": [
+                                                {
+                                                    "k": "module",
+                                                    "v": []
+                                                },
+                                                {
+                                                    "k": "threshold",
+                                                    "v": "0"
+                                                },
+                                                {
+                                                    "k": "value",
+                                                    "v": "0"
+                                                },
+                                                {
+                                                    "k": "training",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "inplace",
+                                                    "v": "True"
+                                                }
+                                            ],
+                                            "title": "relu"
+                                        },
+                                        {
+                                            "depends": [
+                                                7
+                                            ],
+                                            "discription": "Conv2d",
+                                            "id": 8,
+                                            "maxPoints": 2,
+                                            "params": [
+                                                {
+                                                    "k": "padding",
+                                                    "v": "(1, 1)"
+                                                },
+                                                {
+                                                    "k": "kernel_size",
+                                                    "v": "(3, 3)"
+                                                },
+                                                {
+                                                    "k": "dilation",
+                                                    "v": "(1, 1)"
+                                                },
+                                                {
+                                                    "k": "groups",
+                                                    "v": "1"
+                                                },
+                                                {
+                                                    "k": "out_channels",
+                                                    "v": "64"
+                                                },
+                                                {
+                                                    "k": "output_padding",
+                                                    "v": "(0, 0)"
+                                                },
+                                                {
+                                                    "k": "transposed",
+                                                    "v": "False"
+                                                },
+                                                {
+                                                    "k": "in_channels",
+                                                    "v": "64"
+                                                },
+                                                {
+                                                    "k": "training",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "stride",
+                                                    "v": "(1, 1)"
+                                                }
+                                            ],
+                                            "title": "conv2"
+                                        },
+                                        {
+                                            "depends": [
+                                                8
+                                            ],
+                                            "discription": "BatchNorm2d",
+                                            "id": 9,
+                                            "maxPoints": 2,
+                                            "params": [
+                                                {
+                                                    "k": "eps",
+                                                    "v": "1e-05"
+                                                },
+                                                {
+                                                    "k": "momentum",
+                                                    "v": "0.1"
+                                                },
+                                                {
+                                                    "k": "track_running_stats",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "affine",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "num_features",
+                                                    "v": "64"
+                                                },
+                                                {
+                                                    "k": "training",
+                                                    "v": "True"
+                                                }
+                                            ],
+                                            "title": "bn2"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "k": "downsample",
+                                    "v": "None"
+                                },
+                                {
+                                    "k": "training",
+                                    "v": "True"
+                                },
+                                {
+                                    "k": "stride",
+                                    "v": "1"
+                                }
+                            ],
+                            "title": "0"
+                        },
+                        {
+                            "depends": [
+                                5
+                            ],
+                            "discription": "BasicBlock",
+                            "id": 6,
+                            "maxPoints": 2,
+                            "params": [
+                                {
+                                    "k": "module",
+                                    "v": [
+                                        {
+                                            "depends": [
+                                                5
+                                            ],
+                                            "discription": "Conv2d",
+                                            "id": 6,
+                                            "maxPoints": 2,
+                                            "params": [
+                                                {
+                                                    "k": "padding",
+                                                    "v": "(1, 1)"
+                                                },
+                                                {
+                                                    "k": "kernel_size",
+                                                    "v": "(3, 3)"
+                                                },
+                                                {
+                                                    "k": "dilation",
+                                                    "v": "(1, 1)"
+                                                },
+                                                {
+                                                    "k": "groups",
+                                                    "v": "1"
+                                                },
+                                                {
+                                                    "k": "out_channels",
+                                                    "v": "64"
+                                                },
+                                                {
+                                                    "k": "output_padding",
+                                                    "v": "(0, 0)"
+                                                },
+                                                {
+                                                    "k": "transposed",
+                                                    "v": "False"
+                                                },
+                                                {
+                                                    "k": "in_channels",
+                                                    "v": "64"
+                                                },
+                                                {
+                                                    "k": "training",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "stride",
+                                                    "v": "(1, 1)"
+                                                }
+                                            ],
+                                            "title": "conv1"
+                                        },
+                                        {
+                                            "depends": [
+                                                6
+                                            ],
+                                            "discription": "BatchNorm2d",
+                                            "id": 7,
+                                            "maxPoints": 2,
+                                            "params": [
+                                                {
+                                                    "k": "eps",
+                                                    "v": "1e-05"
+                                                },
+                                                {
+                                                    "k": "momentum",
+                                                    "v": "0.1"
+                                                },
+                                                {
+                                                    "k": "track_running_stats",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "affine",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "num_features",
+                                                    "v": "64"
+                                                },
+                                                {
+                                                    "k": "training",
+                                                    "v": "True"
+                                                }
+                                            ],
+                                            "title": "bn1"
+                                        },
+                                        {
+                                            "depends": [
+                                                7
+                                            ],
+                                            "discription": "ReLU",
+                                            "id": 8,
+                                            "maxPoints": 2,
+                                            "params": [
+                                                {
+                                                    "k": "module",
+                                                    "v": []
+                                                },
+                                                {
+                                                    "k": "threshold",
+                                                    "v": "0"
+                                                },
+                                                {
+                                                    "k": "value",
+                                                    "v": "0"
+                                                },
+                                                {
+                                                    "k": "training",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "inplace",
+                                                    "v": "True"
+                                                }
+                                            ],
+                                            "title": "relu"
+                                        },
+                                        {
+                                            "depends": [
+                                                8
+                                            ],
+                                            "discription": "Conv2d",
+                                            "id": 9,
+                                            "maxPoints": 2,
+                                            "params": [
+                                                {
+                                                    "k": "padding",
+                                                    "v": "(1, 1)"
+                                                },
+                                                {
+                                                    "k": "kernel_size",
+                                                    "v": "(3, 3)"
+                                                },
+                                                {
+                                                    "k": "dilation",
+                                                    "v": "(1, 1)"
+                                                },
+                                                {
+                                                    "k": "groups",
+                                                    "v": "1"
+                                                },
+                                                {
+                                                    "k": "out_channels",
+                                                    "v": "64"
+                                                },
+                                                {
+                                                    "k": "output_padding",
+                                                    "v": "(0, 0)"
+                                                },
+                                                {
+                                                    "k": "transposed",
+                                                    "v": "False"
+                                                },
+                                                {
+                                                    "k": "in_channels",
+                                                    "v": "64"
+                                                },
+                                                {
+                                                    "k": "training",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "stride",
+                                                    "v": "(1, 1)"
+                                                }
+                                            ],
+                                            "title": "conv2"
+                                        },
+                                        {
+                                            "depends": [
+                                                9
+                                            ],
+                                            "discription": "BatchNorm2d",
+                                            "id": 10,
+                                            "maxPoints": 2,
+                                            "params": [
+                                                {
+                                                    "k": "eps",
+                                                    "v": "1e-05"
+                                                },
+                                                {
+                                                    "k": "momentum",
+                                                    "v": "0.1"
+                                                },
+                                                {
+                                                    "k": "track_running_stats",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "affine",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "num_features",
+                                                    "v": "64"
+                                                },
+                                                {
+                                                    "k": "training",
+                                                    "v": "True"
+                                                }
+                                            ],
+                                            "title": "bn2"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "k": "downsample",
+                                    "v": "None"
+                                },
+                                {
+                                    "k": "training",
+                                    "v": "True"
+                                },
+                                {
+                                    "k": "stride",
+                                    "v": "1"
+                                }
+                            ],
+                            "title": "1"
+                        }
+                    ]
+                },
+                {
+                    "k": "training",
+                    "v": "True"
+                }
+            ],
+            "title": "layer1"
+        },
+        {
+            "depends": [
+                5
+            ],
+            "discription": "Sequential",
+            "id": 6,
+            "maxPoints": 2,
+            "params": [
+                {
+                    "k": "module",
+                    "v": [
+                        {
+                            "depends": [
+                                5
+                            ],
+                            "discription": "BasicBlock",
+                            "id": 6,
+                            "maxPoints": 2,
+                            "params": [
+                                {
+                                    "k": "module",
+                                    "v": [
+                                        {
+                                            "depends": [
+                                                5
+                                            ],
+                                            "discription": "Conv2d",
+                                            "id": 6,
+                                            "maxPoints": 2,
+                                            "params": [
+                                                {
+                                                    "k": "padding",
+                                                    "v": "(1, 1)"
+                                                },
+                                                {
+                                                    "k": "kernel_size",
+                                                    "v": "(3, 3)"
+                                                },
+                                                {
+                                                    "k": "dilation",
+                                                    "v": "(1, 1)"
+                                                },
+                                                {
+                                                    "k": "groups",
+                                                    "v": "1"
+                                                },
+                                                {
+                                                    "k": "out_channels",
+                                                    "v": "128"
+                                                },
+                                                {
+                                                    "k": "output_padding",
+                                                    "v": "(0, 0)"
+                                                },
+                                                {
+                                                    "k": "transposed",
+                                                    "v": "False"
+                                                },
+                                                {
+                                                    "k": "in_channels",
+                                                    "v": "64"
+                                                },
+                                                {
+                                                    "k": "training",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "stride",
+                                                    "v": "(2, 2)"
+                                                }
+                                            ],
+                                            "title": "conv1"
+                                        },
+                                        {
+                                            "depends": [
+                                                6
+                                            ],
+                                            "discription": "BatchNorm2d",
+                                            "id": 7,
+                                            "maxPoints": 2,
+                                            "params": [
+                                                {
+                                                    "k": "eps",
+                                                    "v": "1e-05"
+                                                },
+                                                {
+                                                    "k": "momentum",
+                                                    "v": "0.1"
+                                                },
+                                                {
+                                                    "k": "track_running_stats",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "affine",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "num_features",
+                                                    "v": "128"
+                                                },
+                                                {
+                                                    "k": "training",
+                                                    "v": "True"
+                                                }
+                                            ],
+                                            "title": "bn1"
+                                        },
+                                        {
+                                            "depends": [
+                                                7
+                                            ],
+                                            "discription": "ReLU",
+                                            "id": 8,
+                                            "maxPoints": 2,
+                                            "params": [
+                                                {
+                                                    "k": "module",
+                                                    "v": []
+                                                },
+                                                {
+                                                    "k": "threshold",
+                                                    "v": "0"
+                                                },
+                                                {
+                                                    "k": "value",
+                                                    "v": "0"
+                                                },
+                                                {
+                                                    "k": "training",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "inplace",
+                                                    "v": "True"
+                                                }
+                                            ],
+                                            "title": "relu"
+                                        },
+                                        {
+                                            "depends": [
+                                                8
+                                            ],
+                                            "discription": "Conv2d",
+                                            "id": 9,
+                                            "maxPoints": 2,
+                                            "params": [
+                                                {
+                                                    "k": "padding",
+                                                    "v": "(1, 1)"
+                                                },
+                                                {
+                                                    "k": "kernel_size",
+                                                    "v": "(3, 3)"
+                                                },
+                                                {
+                                                    "k": "dilation",
+                                                    "v": "(1, 1)"
+                                                },
+                                                {
+                                                    "k": "groups",
+                                                    "v": "1"
+                                                },
+                                                {
+                                                    "k": "out_channels",
+                                                    "v": "128"
+                                                },
+                                                {
+                                                    "k": "output_padding",
+                                                    "v": "(0, 0)"
+                                                },
+                                                {
+                                                    "k": "transposed",
+                                                    "v": "False"
+                                                },
+                                                {
+                                                    "k": "in_channels",
+                                                    "v": "128"
+                                                },
+                                                {
+                                                    "k": "training",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "stride",
+                                                    "v": "(1, 1)"
+                                                }
+                                            ],
+                                            "title": "conv2"
+                                        },
+                                        {
+                                            "depends": [
+                                                9
+                                            ],
+                                            "discription": "BatchNorm2d",
+                                            "id": 10,
+                                            "maxPoints": 2,
+                                            "params": [
+                                                {
+                                                    "k": "eps",
+                                                    "v": "1e-05"
+                                                },
+                                                {
+                                                    "k": "momentum",
+                                                    "v": "0.1"
+                                                },
+                                                {
+                                                    "k": "track_running_stats",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "affine",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "num_features",
+                                                    "v": "128"
+                                                },
+                                                {
+                                                    "k": "training",
+                                                    "v": "True"
+                                                }
+                                            ],
+                                            "title": "bn2"
+                                        },
+                                        {
+                                            "depends": [
+                                                10
+                                            ],
+                                            "discription": "Sequential",
+                                            "id": 11,
+                                            "maxPoints": 2,
+                                            "params": [
+                                                {
+                                                    "k": "module",
+                                                    "v": [
+                                                        {
+                                                            "depends": [
+                                                                10
+                                                            ],
+                                                            "discription": "Conv2d",
+                                                            "id": 11,
+                                                            "maxPoints": 2,
+                                                            "params": [
+                                                                {
+                                                                    "k": "padding",
+                                                                    "v": "(0, "
+                                                                              "0)"
+                                                                },
+                                                                {
+                                                                    "k": "kernel_size",
+                                                                    "v": "(1, "
+                                                                              "1)"
+                                                                },
+                                                                {
+                                                                    "k": "dilation",
+                                                                    "v": "(1, "
+                                                                              "1)"
+                                                                },
+                                                                {
+                                                                    "k": "groups",
+                                                                    "v": "1"
+                                                                },
+                                                                {
+                                                                    "k": "out_channels",
+                                                                    "v": "128"
+                                                                },
+                                                                {
+                                                                    "k": "output_padding",
+                                                                    "v": "(0, "
+                                                                              "0)"
+                                                                },
+                                                                {
+                                                                    "k": "transposed",
+                                                                    "v": "False"
+                                                                },
+                                                                {
+                                                                    "k": "in_channels",
+                                                                    "v": "64"
+                                                                },
+                                                                {
+                                                                    "k": "training",
+                                                                    "v": "True"
+                                                                },
+                                                                {
+                                                                    "k": "stride",
+                                                                    "v": "(2, "
+                                                                              "2)"
+                                                                }
+                                                            ],
+                                                            "title": "0"
+                                                        },
+                                                        {
+                                                            "depends": [
+                                                                11
+                                                            ],
+                                                            "discription": "BatchNorm2d",
+                                                            "id": 12,
+                                                            "maxPoints": 2,
+                                                            "params": [
+                                                                {
+                                                                    "k": "eps",
+                                                                    "v": "1e-05"
+                                                                },
+                                                                {
+                                                                    "k": "momentum",
+                                                                    "v": "0.1"
+                                                                },
+                                                                {
+                                                                    "k": "track_running_stats",
+                                                                    "v": "True"
+                                                                },
+                                                                {
+                                                                    "k": "affine",
+                                                                    "v": "True"
+                                                                },
+                                                                {
+                                                                    "k": "num_features",
+                                                                    "v": "128"
+                                                                },
+                                                                {
+                                                                    "k": "training",
+                                                                    "v": "True"
+                                                                }
+                                                            ],
+                                                            "title": "1"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "k": "training",
+                                                    "v": "True"
+                                                }
+                                            ],
+                                            "title": "downsample"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "k": "training",
+                                    "v": "True"
+                                },
+                                {
+                                    "k": "stride",
+                                    "v": "2"
+                                }
+                            ],
+                            "title": "0"
+                        },
+                        {
+                            "depends": [
+                                6
+                            ],
+                            "discription": "BasicBlock",
+                            "id": 7,
+                            "maxPoints": 2,
+                            "params": [
+                                {
+                                    "k": "module",
+                                    "v": [
+                                        {
+                                            "depends": [
+                                                6
+                                            ],
+                                            "discription": "Conv2d",
+                                            "id": 7,
+                                            "maxPoints": 2,
+                                            "params": [
+                                                {
+                                                    "k": "padding",
+                                                    "v": "(1, 1)"
+                                                },
+                                                {
+                                                    "k": "kernel_size",
+                                                    "v": "(3, 3)"
+                                                },
+                                                {
+                                                    "k": "dilation",
+                                                    "v": "(1, 1)"
+                                                },
+                                                {
+                                                    "k": "groups",
+                                                    "v": "1"
+                                                },
+                                                {
+                                                    "k": "out_channels",
+                                                    "v": "128"
+                                                },
+                                                {
+                                                    "k": "output_padding",
+                                                    "v": "(0, 0)"
+                                                },
+                                                {
+                                                    "k": "transposed",
+                                                    "v": "False"
+                                                },
+                                                {
+                                                    "k": "in_channels",
+                                                    "v": "128"
+                                                },
+                                                {
+                                                    "k": "training",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "stride",
+                                                    "v": "(1, 1)"
+                                                }
+                                            ],
+                                            "title": "conv1"
+                                        },
+                                        {
+                                            "depends": [
+                                                7
+                                            ],
+                                            "discription": "BatchNorm2d",
+                                            "id": 8,
+                                            "maxPoints": 2,
+                                            "params": [
+                                                {
+                                                    "k": "eps",
+                                                    "v": "1e-05"
+                                                },
+                                                {
+                                                    "k": "momentum",
+                                                    "v": "0.1"
+                                                },
+                                                {
+                                                    "k": "track_running_stats",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "affine",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "num_features",
+                                                    "v": "128"
+                                                },
+                                                {
+                                                    "k": "training",
+                                                    "v": "True"
+                                                }
+                                            ],
+                                            "title": "bn1"
+                                        },
+                                        {
+                                            "depends": [
+                                                8
+                                            ],
+                                            "discription": "ReLU",
+                                            "id": 9,
+                                            "maxPoints": 2,
+                                            "params": [
+                                                {
+                                                    "k": "module",
+                                                    "v": []
+                                                },
+                                                {
+                                                    "k": "threshold",
+                                                    "v": "0"
+                                                },
+                                                {
+                                                    "k": "value",
+                                                    "v": "0"
+                                                },
+                                                {
+                                                    "k": "training",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "inplace",
+                                                    "v": "True"
+                                                }
+                                            ],
+                                            "title": "relu"
+                                        },
+                                        {
+                                            "depends": [
+                                                9
+                                            ],
+                                            "discription": "Conv2d",
+                                            "id": 10,
+                                            "maxPoints": 2,
+                                            "params": [
+                                                {
+                                                    "k": "padding",
+                                                    "v": "(1, 1)"
+                                                },
+                                                {
+                                                    "k": "kernel_size",
+                                                    "v": "(3, 3)"
+                                                },
+                                                {
+                                                    "k": "dilation",
+                                                    "v": "(1, 1)"
+                                                },
+                                                {
+                                                    "k": "groups",
+                                                    "v": "1"
+                                                },
+                                                {
+                                                    "k": "out_channels",
+                                                    "v": "128"
+                                                },
+                                                {
+                                                    "k": "output_padding",
+                                                    "v": "(0, 0)"
+                                                },
+                                                {
+                                                    "k": "transposed",
+                                                    "v": "False"
+                                                },
+                                                {
+                                                    "k": "in_channels",
+                                                    "v": "128"
+                                                },
+                                                {
+                                                    "k": "training",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "stride",
+                                                    "v": "(1, 1)"
+                                                }
+                                            ],
+                                            "title": "conv2"
+                                        },
+                                        {
+                                            "depends": [
+                                                10
+                                            ],
+                                            "discription": "BatchNorm2d",
+                                            "id": 11,
+                                            "maxPoints": 2,
+                                            "params": [
+                                                {
+                                                    "k": "eps",
+                                                    "v": "1e-05"
+                                                },
+                                                {
+                                                    "k": "momentum",
+                                                    "v": "0.1"
+                                                },
+                                                {
+                                                    "k": "track_running_stats",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "affine",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "num_features",
+                                                    "v": "128"
+                                                },
+                                                {
+                                                    "k": "training",
+                                                    "v": "True"
+                                                }
+                                            ],
+                                            "title": "bn2"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "k": "downsample",
+                                    "v": "None"
+                                },
+                                {
+                                    "k": "training",
+                                    "v": "True"
+                                },
+                                {
+                                    "k": "stride",
+                                    "v": "1"
+                                }
+                            ],
+                            "title": "1"
+                        }
+                    ]
+                },
+                {
+                    "k": "training",
+                    "v": "True"
+                }
+            ],
+            "title": "layer2"
+        },
+        {
+            "depends": [
+                6
+            ],
+            "discription": "Sequential",
+            "id": 7,
+            "maxPoints": 2,
+            "params": [
+                {
+                    "k": "module",
+                    "v": [
+                        {
+                            "depends": [
+                                6
+                            ],
+                            "discription": "BasicBlock",
+                            "id": 7,
+                            "maxPoints": 2,
+                            "params": [
+                                {
+                                    "k": "module",
+                                    "v": [
+                                        {
+                                            "depends": [
+                                                6
+                                            ],
+                                            "discription": "Conv2d",
+                                            "id": 7,
+                                            "maxPoints": 2,
+                                            "params": [
+                                                {
+                                                    "k": "padding",
+                                                    "v": "(1, 1)"
+                                                },
+                                                {
+                                                    "k": "kernel_size",
+                                                    "v": "(3, 3)"
+                                                },
+                                                {
+                                                    "k": "dilation",
+                                                    "v": "(1, 1)"
+                                                },
+                                                {
+                                                    "k": "groups",
+                                                    "v": "1"
+                                                },
+                                                {
+                                                    "k": "out_channels",
+                                                    "v": "256"
+                                                },
+                                                {
+                                                    "k": "output_padding",
+                                                    "v": "(0, 0)"
+                                                },
+                                                {
+                                                    "k": "transposed",
+                                                    "v": "False"
+                                                },
+                                                {
+                                                    "k": "in_channels",
+                                                    "v": "128"
+                                                },
+                                                {
+                                                    "k": "training",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "stride",
+                                                    "v": "(2, 2)"
+                                                }
+                                            ],
+                                            "title": "conv1"
+                                        },
+                                        {
+                                            "depends": [
+                                                7
+                                            ],
+                                            "discription": "BatchNorm2d",
+                                            "id": 8,
+                                            "maxPoints": 2,
+                                            "params": [
+                                                {
+                                                    "k": "eps",
+                                                    "v": "1e-05"
+                                                },
+                                                {
+                                                    "k": "momentum",
+                                                    "v": "0.1"
+                                                },
+                                                {
+                                                    "k": "track_running_stats",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "affine",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "num_features",
+                                                    "v": "256"
+                                                },
+                                                {
+                                                    "k": "training",
+                                                    "v": "True"
+                                                }
+                                            ],
+                                            "title": "bn1"
+                                        },
+                                        {
+                                            "depends": [
+                                                8
+                                            ],
+                                            "discription": "ReLU",
+                                            "id": 9,
+                                            "maxPoints": 2,
+                                            "params": [
+                                                {
+                                                    "k": "module",
+                                                    "v": []
+                                                },
+                                                {
+                                                    "k": "threshold",
+                                                    "v": "0"
+                                                },
+                                                {
+                                                    "k": "value",
+                                                    "v": "0"
+                                                },
+                                                {
+                                                    "k": "training",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "inplace",
+                                                    "v": "True"
+                                                }
+                                            ],
+                                            "title": "relu"
+                                        },
+                                        {
+                                            "depends": [
+                                                9
+                                            ],
+                                            "discription": "Conv2d",
+                                            "id": 10,
+                                            "maxPoints": 2,
+                                            "params": [
+                                                {
+                                                    "k": "padding",
+                                                    "v": "(1, 1)"
+                                                },
+                                                {
+                                                    "k": "kernel_size",
+                                                    "v": "(3, 3)"
+                                                },
+                                                {
+                                                    "k": "dilation",
+                                                    "v": "(1, 1)"
+                                                },
+                                                {
+                                                    "k": "groups",
+                                                    "v": "1"
+                                                },
+                                                {
+                                                    "k": "out_channels",
+                                                    "v": "256"
+                                                },
+                                                {
+                                                    "k": "output_padding",
+                                                    "v": "(0, 0)"
+                                                },
+                                                {
+                                                    "k": "transposed",
+                                                    "v": "False"
+                                                },
+                                                {
+                                                    "k": "in_channels",
+                                                    "v": "256"
+                                                },
+                                                {
+                                                    "k": "training",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "stride",
+                                                    "v": "(1, 1)"
+                                                }
+                                            ],
+                                            "title": "conv2"
+                                        },
+                                        {
+                                            "depends": [
+                                                10
+                                            ],
+                                            "discription": "BatchNorm2d",
+                                            "id": 11,
+                                            "maxPoints": 2,
+                                            "params": [
+                                                {
+                                                    "k": "eps",
+                                                    "v": "1e-05"
+                                                },
+                                                {
+                                                    "k": "momentum",
+                                                    "v": "0.1"
+                                                },
+                                                {
+                                                    "k": "track_running_stats",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "affine",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "num_features",
+                                                    "v": "256"
+                                                },
+                                                {
+                                                    "k": "training",
+                                                    "v": "True"
+                                                }
+                                            ],
+                                            "title": "bn2"
+                                        },
+                                        {
+                                            "depends": [
+                                                11
+                                            ],
+                                            "discription": "Sequential",
+                                            "id": 12,
+                                            "maxPoints": 2,
+                                            "params": [
+                                                {
+                                                    "k": "module",
+                                                    "v": [
+                                                        {
+                                                            "depends": [
+                                                                11
+                                                            ],
+                                                            "discription": "Conv2d",
+                                                            "id": 12,
+                                                            "maxPoints": 2,
+                                                            "params": [
+                                                                {
+                                                                    "k": "padding",
+                                                                    "v": "(0, "
+                                                                              "0)"
+                                                                },
+                                                                {
+                                                                    "k": "kernel_size",
+                                                                    "v": "(1, "
+                                                                              "1)"
+                                                                },
+                                                                {
+                                                                    "k": "dilation",
+                                                                    "v": "(1, "
+                                                                              "1)"
+                                                                },
+                                                                {
+                                                                    "k": "groups",
+                                                                    "v": "1"
+                                                                },
+                                                                {
+                                                                    "k": "out_channels",
+                                                                    "v": "256"
+                                                                },
+                                                                {
+                                                                    "k": "output_padding",
+                                                                    "v": "(0, "
+                                                                              "0)"
+                                                                },
+                                                                {
+                                                                    "k": "transposed",
+                                                                    "v": "False"
+                                                                },
+                                                                {
+                                                                    "k": "in_channels",
+                                                                    "v": "128"
+                                                                },
+                                                                {
+                                                                    "k": "training",
+                                                                    "v": "True"
+                                                                },
+                                                                {
+                                                                    "k": "stride",
+                                                                    "v": "(2, "
+                                                                              "2)"
+                                                                }
+                                                            ],
+                                                            "title": "0"
+                                                        },
+                                                        {
+                                                            "depends": [
+                                                                12
+                                                            ],
+                                                            "discription": "BatchNorm2d",
+                                                            "id": 13,
+                                                            "maxPoints": 2,
+                                                            "params": [
+                                                                {
+                                                                    "k": "eps",
+                                                                    "v": "1e-05"
+                                                                },
+                                                                {
+                                                                    "k": "momentum",
+                                                                    "v": "0.1"
+                                                                },
+                                                                {
+                                                                    "k": "track_running_stats",
+                                                                    "v": "True"
+                                                                },
+                                                                {
+                                                                    "k": "affine",
+                                                                    "v": "True"
+                                                                },
+                                                                {
+                                                                    "k": "num_features",
+                                                                    "v": "256"
+                                                                },
+                                                                {
+                                                                    "k": "training",
+                                                                    "v": "True"
+                                                                }
+                                                            ],
+                                                            "title": "1"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "k": "training",
+                                                    "v": "True"
+                                                }
+                                            ],
+                                            "title": "downsample"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "k": "training",
+                                    "v": "True"
+                                },
+                                {
+                                    "k": "stride",
+                                    "v": "2"
+                                }
+                            ],
+                            "title": "0"
+                        },
+                        {
+                            "depends": [
+                                7
+                            ],
+                            "discription": "BasicBlock",
+                            "id": 8,
+                            "maxPoints": 2,
+                            "params": [
+                                {
+                                    "k": "module",
+                                    "v": [
+                                        {
+                                            "depends": [
+                                                7
+                                            ],
+                                            "discription": "Conv2d",
+                                            "id": 8,
+                                            "maxPoints": 2,
+                                            "params": [
+                                                {
+                                                    "k": "padding",
+                                                    "v": "(1, 1)"
+                                                },
+                                                {
+                                                    "k": "kernel_size",
+                                                    "v": "(3, 3)"
+                                                },
+                                                {
+                                                    "k": "dilation",
+                                                    "v": "(1, 1)"
+                                                },
+                                                {
+                                                    "k": "groups",
+                                                    "v": "1"
+                                                },
+                                                {
+                                                    "k": "out_channels",
+                                                    "v": "256"
+                                                },
+                                                {
+                                                    "k": "output_padding",
+                                                    "v": "(0, 0)"
+                                                },
+                                                {
+                                                    "k": "transposed",
+                                                    "v": "False"
+                                                },
+                                                {
+                                                    "k": "in_channels",
+                                                    "v": "256"
+                                                },
+                                                {
+                                                    "k": "training",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "stride",
+                                                    "v": "(1, 1)"
+                                                }
+                                            ],
+                                            "title": "conv1"
+                                        },
+                                        {
+                                            "depends": [
+                                                8
+                                            ],
+                                            "discription": "BatchNorm2d",
+                                            "id": 9,
+                                            "maxPoints": 2,
+                                            "params": [
+                                                {
+                                                    "k": "eps",
+                                                    "v": "1e-05"
+                                                },
+                                                {
+                                                    "k": "momentum",
+                                                    "v": "0.1"
+                                                },
+                                                {
+                                                    "k": "track_running_stats",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "affine",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "num_features",
+                                                    "v": "256"
+                                                },
+                                                {
+                                                    "k": "training",
+                                                    "v": "True"
+                                                }
+                                            ],
+                                            "title": "bn1"
+                                        },
+                                        {
+                                            "depends": [
+                                                9
+                                            ],
+                                            "discription": "ReLU",
+                                            "id": 10,
+                                            "maxPoints": 2,
+                                            "params": [
+                                                {
+                                                    "k": "module",
+                                                    "v": []
+                                                },
+                                                {
+                                                    "k": "threshold",
+                                                    "v": "0"
+                                                },
+                                                {
+                                                    "k": "value",
+                                                    "v": "0"
+                                                },
+                                                {
+                                                    "k": "training",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "inplace",
+                                                    "v": "True"
+                                                }
+                                            ],
+                                            "title": "relu"
+                                        },
+                                        {
+                                            "depends": [
+                                                10
+                                            ],
+                                            "discription": "Conv2d",
+                                            "id": 11,
+                                            "maxPoints": 2,
+                                            "params": [
+                                                {
+                                                    "k": "padding",
+                                                    "v": "(1, 1)"
+                                                },
+                                                {
+                                                    "k": "kernel_size",
+                                                    "v": "(3, 3)"
+                                                },
+                                                {
+                                                    "k": "dilation",
+                                                    "v": "(1, 1)"
+                                                },
+                                                {
+                                                    "k": "groups",
+                                                    "v": "1"
+                                                },
+                                                {
+                                                    "k": "out_channels",
+                                                    "v": "256"
+                                                },
+                                                {
+                                                    "k": "output_padding",
+                                                    "v": "(0, 0)"
+                                                },
+                                                {
+                                                    "k": "transposed",
+                                                    "v": "False"
+                                                },
+                                                {
+                                                    "k": "in_channels",
+                                                    "v": "256"
+                                                },
+                                                {
+                                                    "k": "training",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "stride",
+                                                    "v": "(1, 1)"
+                                                }
+                                            ],
+                                            "title": "conv2"
+                                        },
+                                        {
+                                            "depends": [
+                                                11
+                                            ],
+                                            "discription": "BatchNorm2d",
+                                            "id": 12,
+                                            "maxPoints": 2,
+                                            "params": [
+                                                {
+                                                    "k": "eps",
+                                                    "v": "1e-05"
+                                                },
+                                                {
+                                                    "k": "momentum",
+                                                    "v": "0.1"
+                                                },
+                                                {
+                                                    "k": "track_running_stats",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "affine",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "num_features",
+                                                    "v": "256"
+                                                },
+                                                {
+                                                    "k": "training",
+                                                    "v": "True"
+                                                }
+                                            ],
+                                            "title": "bn2"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "k": "downsample",
+                                    "v": "None"
+                                },
+                                {
+                                    "k": "training",
+                                    "v": "True"
+                                },
+                                {
+                                    "k": "stride",
+                                    "v": "1"
+                                }
+                            ],
+                            "title": "1"
+                        }
+                    ]
+                },
+                {
+                    "k": "training",
+                    "v": "True"
+                }
+            ],
+            "title": "layer3"
+        },
+        {
+            "depends": [
+                7
+            ],
+            "discription": "Sequential",
+            "id": 8,
+            "maxPoints": 2,
+            "params": [
+                {
+                    "k": "module",
+                    "v": [
+                        {
+                            "depends": [
+                                7
+                            ],
+                            "discription": "BasicBlock",
+                            "id": 8,
+                            "maxPoints": 2,
+                            "params": [
+                                {
+                                    "k": "module",
+                                    "v": [
+                                        {
+                                            "depends": [
+                                                7
+                                            ],
+                                            "discription": "Conv2d",
+                                            "id": 8,
+                                            "maxPoints": 2,
+                                            "params": [
+                                                {
+                                                    "k": "padding",
+                                                    "v": "(1, 1)"
+                                                },
+                                                {
+                                                    "k": "kernel_size",
+                                                    "v": "(3, 3)"
+                                                },
+                                                {
+                                                    "k": "dilation",
+                                                    "v": "(1, 1)"
+                                                },
+                                                {
+                                                    "k": "groups",
+                                                    "v": "1"
+                                                },
+                                                {
+                                                    "k": "out_channels",
+                                                    "v": "512"
+                                                },
+                                                {
+                                                    "k": "output_padding",
+                                                    "v": "(0, 0)"
+                                                },
+                                                {
+                                                    "k": "transposed",
+                                                    "v": "False"
+                                                },
+                                                {
+                                                    "k": "in_channels",
+                                                    "v": "256"
+                                                },
+                                                {
+                                                    "k": "training",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "stride",
+                                                    "v": "(2, 2)"
+                                                }
+                                            ],
+                                            "title": "conv1"
+                                        },
+                                        {
+                                            "depends": [
+                                                8
+                                            ],
+                                            "discription": "BatchNorm2d",
+                                            "id": 9,
+                                            "maxPoints": 2,
+                                            "params": [
+                                                {
+                                                    "k": "eps",
+                                                    "v": "1e-05"
+                                                },
+                                                {
+                                                    "k": "momentum",
+                                                    "v": "0.1"
+                                                },
+                                                {
+                                                    "k": "track_running_stats",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "affine",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "num_features",
+                                                    "v": "512"
+                                                },
+                                                {
+                                                    "k": "training",
+                                                    "v": "True"
+                                                }
+                                            ],
+                                            "title": "bn1"
+                                        },
+                                        {
+                                            "depends": [
+                                                9
+                                            ],
+                                            "discription": "ReLU",
+                                            "id": 10,
+                                            "maxPoints": 2,
+                                            "params": [
+                                                {
+                                                    "k": "module",
+                                                    "v": []
+                                                },
+                                                {
+                                                    "k": "threshold",
+                                                    "v": "0"
+                                                },
+                                                {
+                                                    "k": "value",
+                                                    "v": "0"
+                                                },
+                                                {
+                                                    "k": "training",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "inplace",
+                                                    "v": "True"
+                                                }
+                                            ],
+                                            "title": "relu"
+                                        },
+                                        {
+                                            "depends": [
+                                                10
+                                            ],
+                                            "discription": "Conv2d",
+                                            "id": 11,
+                                            "maxPoints": 2,
+                                            "params": [
+                                                {
+                                                    "k": "padding",
+                                                    "v": "(1, 1)"
+                                                },
+                                                {
+                                                    "k": "kernel_size",
+                                                    "v": "(3, 3)"
+                                                },
+                                                {
+                                                    "k": "dilation",
+                                                    "v": "(1, 1)"
+                                                },
+                                                {
+                                                    "k": "groups",
+                                                    "v": "1"
+                                                },
+                                                {
+                                                    "k": "out_channels",
+                                                    "v": "512"
+                                                },
+                                                {
+                                                    "k": "output_padding",
+                                                    "v": "(0, 0)"
+                                                },
+                                                {
+                                                    "k": "transposed",
+                                                    "v": "False"
+                                                },
+                                                {
+                                                    "k": "in_channels",
+                                                    "v": "512"
+                                                },
+                                                {
+                                                    "k": "training",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "stride",
+                                                    "v": "(1, 1)"
+                                                }
+                                            ],
+                                            "title": "conv2"
+                                        },
+                                        {
+                                            "depends": [
+                                                11
+                                            ],
+                                            "discription": "BatchNorm2d",
+                                            "id": 12,
+                                            "maxPoints": 2,
+                                            "params": [
+                                                {
+                                                    "k": "eps",
+                                                    "v": "1e-05"
+                                                },
+                                                {
+                                                    "k": "momentum",
+                                                    "v": "0.1"
+                                                },
+                                                {
+                                                    "k": "track_running_stats",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "affine",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "num_features",
+                                                    "v": "512"
+                                                },
+                                                {
+                                                    "k": "training",
+                                                    "v": "True"
+                                                }
+                                            ],
+                                            "title": "bn2"
+                                        },
+                                        {
+                                            "depends": [
+                                                12
+                                            ],
+                                            "discription": "Sequential",
+                                            "id": 13,
+                                            "maxPoints": 2,
+                                            "params": [
+                                                {
+                                                    "k": "module",
+                                                    "v": [
+                                                        {
+                                                            "depends": [
+                                                                12
+                                                            ],
+                                                            "discription": "Conv2d",
+                                                            "id": 13,
+                                                            "maxPoints": 2,
+                                                            "params": [
+                                                                {
+                                                                    "k": "padding",
+                                                                    "v": "(0, "
+                                                                              "0)"
+                                                                },
+                                                                {
+                                                                    "k": "kernel_size",
+                                                                    "v": "(1, "
+                                                                              "1)"
+                                                                },
+                                                                {
+                                                                    "k": "dilation",
+                                                                    "v": "(1, "
+                                                                              "1)"
+                                                                },
+                                                                {
+                                                                    "k": "groups",
+                                                                    "v": "1"
+                                                                },
+                                                                {
+                                                                    "k": "out_channels",
+                                                                    "v": "512"
+                                                                },
+                                                                {
+                                                                    "k": "output_padding",
+                                                                    "v": "(0, "
+                                                                              "0)"
+                                                                },
+                                                                {
+                                                                    "k": "transposed",
+                                                                    "v": "False"
+                                                                },
+                                                                {
+                                                                    "k": "in_channels",
+                                                                    "v": "256"
+                                                                },
+                                                                {
+                                                                    "k": "training",
+                                                                    "v": "True"
+                                                                },
+                                                                {
+                                                                    "k": "stride",
+                                                                    "v": "(2, "
+                                                                              "2)"
+                                                                }
+                                                            ],
+                                                            "title": "0"
+                                                        },
+                                                        {
+                                                            "depends": [
+                                                                13
+                                                            ],
+                                                            "discription": "BatchNorm2d",
+                                                            "id": 14,
+                                                            "maxPoints": 2,
+                                                            "params": [
+                                                                {
+                                                                    "k": "eps",
+                                                                    "v": "1e-05"
+                                                                },
+                                                                {
+                                                                    "k": "momentum",
+                                                                    "v": "0.1"
+                                                                },
+                                                                {
+                                                                    "k": "track_running_stats",
+                                                                    "v": "True"
+                                                                },
+                                                                {
+                                                                    "k": "affine",
+                                                                    "v": "True"
+                                                                },
+                                                                {
+                                                                    "k": "num_features",
+                                                                    "v": "512"
+                                                                },
+                                                                {
+                                                                    "k": "training",
+                                                                    "v": "True"
+                                                                }
+                                                            ],
+                                                            "title": "1"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "k": "training",
+                                                    "v": "True"
+                                                }
+                                            ],
+                                            "title": "downsample"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "k": "training",
+                                    "v": "True"
+                                },
+                                {
+                                    "k": "stride",
+                                    "v": "2"
+                                }
+                            ],
+                            "title": "0"
+                        },
+                        {
+                            "depends": [
+                                8
+                            ],
+                            "discription": "BasicBlock",
+                            "id": 9,
+                            "maxPoints": 2,
+                            "params": [
+                                {
+                                    "k": "module",
+                                    "v": [
+                                        {
+                                            "depends": [
+                                                8
+                                            ],
+                                            "discription": "Conv2d",
+                                            "id": 9,
+                                            "maxPoints": 2,
+                                            "params": [
+                                                {
+                                                    "k": "padding",
+                                                    "v": "(1, 1)"
+                                                },
+                                                {
+                                                    "k": "kernel_size",
+                                                    "v": "(3, 3)"
+                                                },
+                                                {
+                                                    "k": "dilation",
+                                                    "v": "(1, 1)"
+                                                },
+                                                {
+                                                    "k": "groups",
+                                                    "v": "1"
+                                                },
+                                                {
+                                                    "k": "out_channels",
+                                                    "v": "512"
+                                                },
+                                                {
+                                                    "k": "output_padding",
+                                                    "v": "(0, 0)"
+                                                },
+                                                {
+                                                    "k": "transposed",
+                                                    "v": "False"
+                                                },
+                                                {
+                                                    "k": "in_channels",
+                                                    "v": "512"
+                                                },
+                                                {
+                                                    "k": "training",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "stride",
+                                                    "v": "(1, 1)"
+                                                }
+                                            ],
+                                            "title": "conv1"
+                                        },
+                                        {
+                                            "depends": [
+                                                9
+                                            ],
+                                            "discription": "BatchNorm2d",
+                                            "id": 10,
+                                            "maxPoints": 2,
+                                            "params": [
+                                                {
+                                                    "k": "eps",
+                                                    "v": "1e-05"
+                                                },
+                                                {
+                                                    "k": "momentum",
+                                                    "v": "0.1"
+                                                },
+                                                {
+                                                    "k": "track_running_stats",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "affine",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "num_features",
+                                                    "v": "512"
+                                                },
+                                                {
+                                                    "k": "training",
+                                                    "v": "True"
+                                                }
+                                            ],
+                                            "title": "bn1"
+                                        },
+                                        {
+                                            "depends": [
+                                                10
+                                            ],
+                                            "discription": "ReLU",
+                                            "id": 11,
+                                            "maxPoints": 2,
+                                            "params": [
+                                                {
+                                                    "k": "module",
+                                                    "v": []
+                                                },
+                                                {
+                                                    "k": "threshold",
+                                                    "v": "0"
+                                                },
+                                                {
+                                                    "k": "value",
+                                                    "v": "0"
+                                                },
+                                                {
+                                                    "k": "training",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "inplace",
+                                                    "v": "True"
+                                                }
+                                            ],
+                                            "title": "relu"
+                                        },
+                                        {
+                                            "depends": [
+                                                11
+                                            ],
+                                            "discription": "Conv2d",
+                                            "id": 12,
+                                            "maxPoints": 2,
+                                            "params": [
+                                                {
+                                                    "k": "padding",
+                                                    "v": "(1, 1)"
+                                                },
+                                                {
+                                                    "k": "kernel_size",
+                                                    "v": "(3, 3)"
+                                                },
+                                                {
+                                                    "k": "dilation",
+                                                    "v": "(1, 1)"
+                                                },
+                                                {
+                                                    "k": "groups",
+                                                    "v": "1"
+                                                },
+                                                {
+                                                    "k": "out_channels",
+                                                    "v": "512"
+                                                },
+                                                {
+                                                    "k": "output_padding",
+                                                    "v": "(0, 0)"
+                                                },
+                                                {
+                                                    "k": "transposed",
+                                                    "v": "False"
+                                                },
+                                                {
+                                                    "k": "in_channels",
+                                                    "v": "512"
+                                                },
+                                                {
+                                                    "k": "training",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "stride",
+                                                    "v": "(1, 1)"
+                                                }
+                                            ],
+                                            "title": "conv2"
+                                        },
+                                        {
+                                            "depends": [
+                                                12
+                                            ],
+                                            "discription": "BatchNorm2d",
+                                            "id": 13,
+                                            "maxPoints": 2,
+                                            "params": [
+                                                {
+                                                    "k": "eps",
+                                                    "v": "1e-05"
+                                                },
+                                                {
+                                                    "k": "momentum",
+                                                    "v": "0.1"
+                                                },
+                                                {
+                                                    "k": "track_running_stats",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "affine",
+                                                    "v": "True"
+                                                },
+                                                {
+                                                    "k": "num_features",
+                                                    "v": "512"
+                                                },
+                                                {
+                                                    "k": "training",
+                                                    "v": "True"
+                                                }
+                                            ],
+                                            "title": "bn2"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "k": "downsample",
+                                    "v": "None"
+                                },
+                                {
+                                    "k": "training",
+                                    "v": "True"
+                                },
+                                {
+                                    "k": "stride",
+                                    "v": "1"
+                                }
+                            ],
+                            "title": "1"
+                        }
+                    ]
+                },
+                {
+                    "k": "training",
+                    "v": "True"
+                }
+            ],
+            "title": "layer4"
+        },
+        {
+            "depends": [
+                8
+            ],
+            "discription": "AvgPool2d",
+            "id": 9,
+            "maxPoints": 2,
+            "params": [
+                {
+                    "k": "module",
+                    "v": []
+                },
+                {
+                    "k": "kernel_size",
+                    "v": "7"
+                },
+                {
+                    "k": "count_include_pad",
+                    "v": "True"
+                },
+                {
+                    "k": "padding",
+                    "v": "0"
+                },
+                {
+                    "k": "ceil_mode",
+                    "v": "False"
+                },
+                {
+                    "k": "training",
+                    "v": "True"
+                },
+                {
+                    "k": "stride",
+                    "v": "1"
+                }
+            ],
+            "title": "avgpool"
+        },
+        {
+            "depends": [
+                9
+            ],
+            "discription": "Linear",
+            "id": 10,
+            "maxPoints": 2,
+            "params": [
+                {
+                    "k": "in_features",
+                    "v": "512"
+                },
+                {
+                    "k": "out_features",
+                    "v": "1000"
+                },
+                {
+                    "k": "training",
+                    "v": "True"
+                }
+            ],
+            "title": "fc"
+        }
+    ]
+}

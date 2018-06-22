@@ -1,30 +1,224 @@
 {
   "skills": [
-    {
-      "id": 1,
-      "title": "conv1",
-      "description": "Convolution",
-      "params": [
-        {
-          "k": "kernel size",
-          "v": 10 
-        }
-      ],
-      "maxPoints": 2
-    },
-    {
-      "id": 2,
-      "title": "pool1",
-      "description": "Pooling",
-      "depends": [
-        1
-      ],
-      "params": [
-        {
-          "k": "kernel size",
-          "v": 15
-        }
-      ]
-    }
+      {
+          "discription": "Conv2d",
+          "id": 1,
+          "maxPoints": 2,
+          "params": [
+              {
+                  "k": "padding",
+                  "v": "(3, 3)"
+              },
+              {
+                  "k": "kernel_size",
+                  "v": "(7, 7)"
+              },
+              {
+                  "k": "dilation",
+                  "v": "(1, 1)"
+              },
+              {
+                  "k": "groups",
+                  "v": "1"
+              },
+              {
+                  "k": "out_channels",
+                  "v": "64"
+              },
+              {
+                  "k": "output_padding",
+                  "v": "(0, 0)"
+              },
+              {
+                  "k": "transposed",
+                  "v": "False"
+              },
+              {
+                  "k": "in_channels",
+                  "v": "3"
+              },
+              {
+                  "k": "training",
+                  "v": "True"
+              },
+              {
+                  "k": "stride",
+                  "v": "(2, 2)"
+              }
+          ],
+          "title": "conv1"
+      },
+      {
+          "depends": [
+              1
+          ],
+          "discription": "BatchNorm2d",
+          "id": 2,
+          "maxPoints": 2,
+          "params": [
+              {
+                  "k": "eps",
+                  "v": "1e-05"
+              },
+              {
+                  "k": "momentum",
+                  "v": "0.1"
+              },
+              {
+                  "k": "track_running_stats",
+                  "v": "True"
+              },
+              {
+                  "k": "affine",
+                  "v": "True"
+              },
+              {
+                  "k": "num_features",
+                  "v": "64"
+              },
+              {
+                  "k": "training",
+                  "v": "True"
+              }
+          ],
+          "title": "bn1"
+      },
+      {
+          "depends": [
+              2
+          ],
+          "discription": "ReLU",
+          "id": 3,
+          "maxPoints": 2,
+          "params": [
+              {
+                  "k": "module",
+                  "v": []
+              },
+              {
+                  "k": "threshold",
+                  "v": "0"
+              },
+              {
+                  "k": "value",
+                  "v": "0"
+              },
+              {
+                  "k": "training",
+                  "v": "True"
+              },
+              {
+                  "k": "inplace",
+                  "v": "True"
+              }
+          ],
+          "title": "relu"
+      },
+      {
+          "depends": [
+              3
+          ],
+          "discription": "MaxPool2d",
+          "id": 4,
+          "maxPoints": 2,
+          "params": [
+              {
+                  "k": "module",
+                  "v": []
+              },
+              {
+                  "k": "kernel_size",
+                  "v": "3"
+              },
+              {
+                  "k": "padding",
+                  "v": "1"
+              },
+              {
+                  "k": "dilation",
+                  "v": "1"
+              },
+              {
+                  "k": "ceil_mode",
+                  "v": "False"
+              },
+              {
+                  "k": "return_indices",
+                  "v": "False"
+              },
+              {
+                  "k": "training",
+                  "v": "True"
+              },
+              {
+                  "k": "stride",
+                  "v": "2"
+              }
+          ],
+          "title": "maxpool"
+      },
+      
+      {
+          "depends": [
+              4
+          ],
+          "discription": "AvgPool2d",
+          "id": 9,
+          "maxPoints": 2,
+          "params": [
+              {
+                  "k": "module",
+                  "v": []
+              },
+              {
+                  "k": "kernel_size",
+                  "v": "7"
+              },
+              {
+                  "k": "count_include_pad",
+                  "v": "True"
+              },
+              {
+                  "k": "padding",
+                  "v": "0"
+              },
+              {
+                  "k": "ceil_mode",
+                  "v": "False"
+              },
+              {
+                  "k": "training",
+                  "v": "True"
+              },
+              {
+                  "k": "stride",
+                  "v": "1"
+              }
+          ],
+          "title": "avgpool"
+      },
+      {
+          "depends": [
+              9
+          ],
+          "discription": "Linear",
+          "id": 10,
+          "maxPoints": 2,
+          "params": [
+              {
+                  "k": "in_features",
+                  "v": "512"
+              },
+              {
+                  "k": "out_features",
+                  "v": "1000"
+              },
+              {
+                  "k": "training",
+                  "v": "True"
+              }
+          ],
+          "title": "fc"
+      }
   ]
 }
