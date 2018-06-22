@@ -1,5 +1,5 @@
-define(['lib/knockout', 'scripts/Book', 'scripts/Link', 'scripts/Skill', 'jquery', 'underscore'],
-  function (ko, Book, Link, Skill, $, _) {
+define(['lib/knockout', 'scripts/Param', 'scripts/Skill', 'jquery', 'underscore'],
+  function (ko, Param, Skill, $, _) {
     'use strict';
     var Node = function (nodes) {
       var self = this;

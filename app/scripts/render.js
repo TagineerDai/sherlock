@@ -69,23 +69,19 @@ define(['d3', 'lib/knockout', 'scripts/Utils', 'dagre-d3', 'jquery', 'lettuce', 
         return 'click: addPoint, rightClick: removePoint';
       });
 
-      //console.log(g.node('HTML'));
 
       /* add tips */
       inner.selectAll('g.node')
         .each(function (v, id) {
-
-
-          g.node(v).books = Utils.handleEmptyDocs(g.node(v).books);
-          g.node(v).links = Utils.handleEmptyDocs(g.node(v).links);
-
+          
+          g.node(v).params = Utils.handleEmptyDocs(g.node(v).params);
           var data = {
             id: id,
             name: v,
             description: g.node(v).description,
-            books: g.node(v).books,
-            links: g.node(v).links
+            params: g.node(v).params,
           };
+
           var results = lettuce.Template.tmpl(description_template, data);
 
           $(this).tooltipster({

@@ -1,17 +1,10 @@
 <div id="{%=o.id%}">
-  <p class="name">{%=o.name%}</p>
-  <p class="description">{%=o.description%}</p>
-  <h3>相关博客</h3>
+  <h4>{%=o.name%}<h4>
+  <p>{%=o.description%}</p>
+  <h4>Parameters<h4>
   <ul>
-    {% for (var i=0; i<o.links.length; i++) { %}
-    <li><a href='{%=o.links[i].url%}' target="_blank">{%=o.links[i].label%}</a></li>
-    {% } %}
-  </ul>
-
-  <h3>相关书籍</h3>
-  <ul>
-    {% for (var i=0; i<o.books.length; i++) { %}
-    <li><a href='{%=o.books[i].url%}' target="_blank">{%=o.books[i].label%}</a></li>
+    {% for (var i=0; i<o.params.length; i++) { %}
+    <li>{%=o.params[i].k%} : {%=o.params[i].v%}</li>
     {% } %}
   </ul>
 </div>

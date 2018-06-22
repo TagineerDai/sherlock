@@ -1,12 +1,12 @@
 {
-  "skills": [
+  "nodes": [
     {
       "id": 1,
-      "name": "Web"
+      "name": "conv1"
     },
     {
       "id": 2,
-      "name": "HTML",
+      "name": "pool1",
       "depends": [1]
     }
   ]

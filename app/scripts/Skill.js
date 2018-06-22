@@ -1,4 +1,4 @@
-define(['lib/knockout', 'scripts/Book', 'scripts/Link', 'scripts/Utils'], function (ko, Book, Link) {
+define(['lib/knockout', 'scripts/Param','scripts/Utils'], function (ko, Param) {
   'use strict';
 
   var Skill = function (_e) {
@@ -10,29 +10,26 @@ define(['lib/knockout', 'scripts/Book', 'scripts/Link', 'scripts/Utils'], functi
     self.description = e.description;
     self.maxPoints = e.maxPoints || 1;
     self.points = ko.observable(e.points || 0);
-    if (e.books !== undefined) {
-      self.books = ko.utils.arrayMap(e.books, function (item) {
-        return new Book(item);
+
+    if (e.params !== undefined) {
+      self.params = ko.utils.arrayMap(e.params, function (item) {
+        return new Param(item);
       });
+
     } else {
-      self.books = {
-        name: '',
-        url: ''
+      self.params = {
+        k: None,
+        v: None
       };
     }
-    self.links = ko.utils.arrayMap(e.links, function (item) {
-      return new Link(item);
-    });
     self.dependencies = ko.observableArray([]);
     self.dependents = ko.observableArray([]);
-    self.stats = e.stats || [];
-    self.rankDescriptions = e.rankDescriptions || [];
-    self.talents = e.talents || [];
 
     //Computed values
     self.hasDependencies = ko.computed(function () {
       return self.dependencies().length > 0;
     });
+
     self.dependenciesFulfilled = ko.computed(function () {
       var result = true;
       ko.utils.arrayForEach(self.dependencies(), function (item) {
@@ -42,6 +39,7 @@ define(['lib/knockout', 'scripts/Book', 'scripts/Link', 'scripts/Utils'], functi
       });
       return result;
     });
+    
     self.dependentsUsed = ko.computed(function () {
       var result = false;
       ko.utils.arrayForEach(self.dependents(), function (item) {
@@ -51,36 +49,33 @@ define(['lib/knockout', 'scripts/Book', 'scripts/Link', 'scripts/Utils'], functi
       });
       return result;
     });
+    
     self.hasPoints = ko.computed(function () {
       return self.points() > 0;
     });
+
     self.hasMultiplePoints = ko.computed(function () {
       return self.points() > 1;
     });
+    
     self.hasMaxPoints = ko.computed(function () {
       return self.points() >= self.maxPoints;
     });
+    
     self.canAddPoints = ko.computed(function () {
       return self.dependenciesFulfilled() && !self.hasMaxPoints();
     });
+    
     self.canRemovePoints = ko.computed(function () {
       return (self.dependentsUsed() && self.hasMultiplePoints()) || (!self.dependentsUsed() && self.hasPoints());
     });
-    self.talentSummary = ko.computed(function () {
-      return self.talents.join(', ');
-    });
-    self.currentRankDescription = ko.computed(function () {
-      return self.rankDescriptions[self.points() - 1];
-    });
-    self.nextRankDescription = ko.computed(function () {
-      return self.rankDescriptions[self.points()];
-    });
-
+    
     self.addPoint = function () {
       if (self.canAddPoints()) {
         self.points(self.points() + 1);
       }
     };
+    
     self.removePoint = function () {
       if (self.canRemovePoints()) {
         self.points(self.points() - 1);

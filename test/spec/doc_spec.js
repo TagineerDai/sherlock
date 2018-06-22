@@ -8,42 +8,27 @@ requirejs.config({
   nodeRequire: require
 });
 
-describe('Book,Link', function () {
-  var Book, Link;
+describe('Param', function () {
+  var Param;
   before(function (done) {
-    requirejs(['scripts/Book', 'scripts/Link'], function (Book_Class, Link_Class) {
-      Book = Book_Class;
-      Link = Link_Class;
+    requirejs(['scripts/Param'], function (Param_Class) {
+      Param = Param_Class;
       done();
     });
   });
 
-  describe('Book Test', function () {
-    it('should return book label & url', function () {
-      var book_name = 'Head First HTML与CSS';
-      var url = 'http://www.phodal.com';
-      var books = {
-        label: book_name,
-        url: url
+  describe('Param Test', function () {
+    it('should return parameter key & value', function () {
+      var param_k = 'kernel';
+      var param_v = 10;
+      var params = {
+        k: param_k,
+        v: param_v
       };
 
-      var _book = new Book(books);
-      _book.label.should.equal(book_name);
-      _book.url.should.equal(url);
-    });
-  });
-  describe('Link Test', function () {
-    it('should return link label & url', function () {
-      var label = 'Head First HTML与CSS';
-      var url = 'http://www.phodal.com';
-      var link = {
-        label: label,
-        url: url
-      };
-
-      var _link = new Link(link);
-      _link.label.should.equal(label);
-      _link.url.should.equal(url);
+      var _param = new Param(params);
+      _param.k.should.equal(param_k);
+      _param.v.should.equal(param_v);
     });
   });
 });
